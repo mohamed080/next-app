@@ -10,7 +10,6 @@ import ProgramsSection from "../components/sections/ProgramsSection";
 import LastNewsSection from "../components/sections/LastNewsSection";
 import PartnersSection from "../components/sections/PartnersSection";
 import ContactSection from "../components/sections/ContactSection";
-import Loading from "../components/Loading";
 
 export default function HomePage() {
   const { user } = useAuth();
