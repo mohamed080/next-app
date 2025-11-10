@@ -15,20 +15,20 @@ import {
 import { AiFillInstagram } from "react-icons/ai";
 
 import { FaComment, FaXTwitter } from "react-icons/fa6";
-import shape_3 from "../assets/shape_3.png";
-import shape_4 from "../assets/shape_4.png";
-import shape_5 from "../assets/shape_5.png";
-import footerImg from "../assets/footerImg.png";
+import shape_3 from "../../assets/shape_3.png";
+import shape_4 from "../../assets/shape_4.png";
+import shape_5 from "../../assets/shape_5.png";
+import footerImg from "../../assets/footerImg.png";
 import logo from "/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import googlePlay from "../assets/google-play.png";
-import appStore from "../assets/app-store.png";
-import PUIUX from "../assets/PUIUX 3.png";
-import footerImgR from "../assets/footerImgR.png";
-import footerImgL from "../assets/footerImgL.png";
+import googlePlay from "../../assets/google-play.png";
+import appStore from "../../assets/app-store.png";
+import PUIUX from "../../assets/PUIUX 3.png";
+import footerImgR from "../../assets/footerImgR.png";
+import footerImgL from "../../assets/footerImgL.png";
 
-export default function ContactUs() {
+export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

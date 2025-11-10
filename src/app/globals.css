@@ -235,18 +235,6 @@ html {
 
 
 /* animation loading */
-/* Wave animation for loading dots */
-@keyframes wave {
-  0%, 60%, 100% {
-    transform: scaleY(0.5);
-    opacity: 0.5;
-  }
-  30% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
-
 /* Shine effect for progress bars */
 @keyframes shine {
   0% {
@@ -267,44 +255,7 @@ html {
   }
 }
 
-/* Smooth spin animations */
-@keyframes spin-slow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Enhanced pulse with color change */
-@keyframes pulse-gold {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
-}
-
-/* Bounce animation for dots */
-@keyframes bounce-gold {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /* Animation Classes */
-.animate-wave {
-  animation: wave 1.2s ease-in-out infinite;
-  transform-origin: center bottom; /* Better performance */
-}
-
 .animate-shine {
   animation: shine 2s ease-in-out infinite;
   will-change: transform; /* Performance hint */
@@ -315,24 +266,8 @@ html {
   will-change: transform;
 }
 
-.animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
-  transform-origin: center; /* Ensure smooth rotation */
-}
-
-.animate-pulse-gold {
-  animation: pulse-gold 2s ease-in-out infinite;
-}
-
-.animate-bounce-gold {
-  animation: bounce-gold 0.6s ease-in-out infinite;
-}
-
 /* Performance optimizations */
-.animate-wave,
-.animate-shine,
-.animate-spin-slow,
-.animate-pulse-gold {
+.animate-shine{
   backface-visibility: hidden;
   perspective: 1000px;
 }

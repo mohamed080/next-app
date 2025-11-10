@@ -7,14 +7,16 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import Image from "next/image";
-import shape_1 from "../assets/shape_1.png";
+import shape_1 from "../../assets/shape_1.png";
+import { useTranslations } from "next-intl";
 
-export default function Hero() {
+export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(33.33);
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const t = useTranslations("home");
 
   const slides = [
     {

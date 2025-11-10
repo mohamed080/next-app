@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "/public/logo.png";
 
-export default function ArabicLoading() {
+export default function Loading() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -18,26 +18,28 @@ export default function ArabicLoading() {
   return (
     <div className="fixed inset-0 bg-[#2F4A46] z-50 flex flex-col items-center justify-center">
       {/* Rotating Arabic Pattern */}
-      <div className="relative mb-8">
-        <div className="w-32 h-32 relative">
-          {/* Center logo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-18 h-18 bg-linear-to-br from-primary to-[#a8835f] rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-              <Image
-                src={logo}
-                alt="logo"
-                width={50}
-                height={50}
-                className="object-contain"
-              />
-            </div>
+      <div className="relative mb-6">
+        <div className="w-28 h-28 relative">
+        {/* Center logo */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-18 h-18 bg-linear-to-br from-primary to-[#a8835f] rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+            <Image
+              src={logo}
+              alt="logo"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
           </div>
+        </div>
         </div>
       </div>
 
       {/* Progress Text */}
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-primary mb-2">أسرة آل ملحم</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-2 animate-pulse">
+          أسرة آل ملحم
+        </h2>
         <p className="text-[#B8C9C7] text-lg">نرحب بكم في منصة الأسرة</p>
       </div>
 
