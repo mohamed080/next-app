@@ -59,9 +59,9 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 justify-items-center md:justify-items-start">
           {/* Left Side - White Background */}
           <div className="bg-white p-4 md:p-8 shadow-[0px_0px_35px_0px_#2F4A4612] relative z-20 order-2 md:order-1 w-full">
-            <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary mb-2">
               من فضلك املأ البيانات التالية
-            </h4>
+            </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -260,6 +260,7 @@ export default function ContactSection() {
                     <Link
                       href="mailto:info@almelhem.com"
                       className="hover:text-primary hover:underline"
+                      aria-label="Email info@almelhem.com"
                     >
                       info@almelhem.com
                     </Link>
@@ -270,6 +271,7 @@ export default function ContactSection() {
                     <Link
                       href="tel:+966555555555"
                       className="hover:text-primary hover:underline"
+                      aria-label="WhatsApp +966 55 555 5555"
                     >
                       +966 55 555 5555
                     </Link>
@@ -279,6 +281,7 @@ export default function ContactSection() {
                     <Link
                       href="tel:+966555555555"
                       className="hover:text-primary hover:underline"
+                      aria-label="Phone +966 55 555 5555"
                     >
                       +966 55 555 5555
                     </Link>
@@ -288,7 +291,7 @@ export default function ContactSection() {
               <div className="flex-1 border-t md:border-r border-primary p-4 sm:p-6 md:p-12 text-center flex flex-col justify-center space-y-4 sm:space-y-5">
                 <Image
                   src={logo.src}
-                  alt="logo"
+                  alt="Al Malham Family Logo"
                   width={100}
                   height={100}
                   className="mx-auto w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
@@ -305,6 +308,7 @@ export default function ContactSection() {
                     href="https://www.tiktok.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="TikTok"
                     className="border border-[#FFFFFF80] hover:bg-primary rounded-full p-2 transition-all duration-300 ease-in-out group"
                   >
                     <FaTiktok className="text-[#FFFFFF80] text-lg group-hover:text-white transition-all duration-300 ease-in-out" />
@@ -313,7 +317,8 @@ export default function ContactSection() {
                     href="https://www.x.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-[#FFFFFF80] hover:bg-primary rounded-full p-2 transition-all duration-300 ease-in-out group:"
+                         aria-label="X / Twitter"
+                    className="border border-[#FFFFFF80] hover:bg-primary rounded-full p-2 transition-all duration-300 ease-in-out group"
                   >
                     <FaXTwitter className="text-[#FFFFFF80] text-lg group-hover:text-white transition-all duration-300 ease-in-out" />
                   </a>
@@ -321,6 +326,7 @@ export default function ContactSection() {
                     href="https://www.snapchat.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                     aria-label="Snapchat"
                     className="border border-[#FFFFFF80] hover:bg-primary rounded-full p-2 transition-all duration-300 ease-in-out group"
                   >
                     <FaSnapchatGhost className="text-[#FFFFFF80] text-lg group-hover:text-white transition-all duration-300 ease-in-out" />
@@ -329,6 +335,7 @@ export default function ContactSection() {
                     href="https://www.instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Instagram"
                     className="border border-[#FFFFFF80] hover:bg-primary rounded-full p-2 transition-all duration-300 ease-in-out group"
                   >
                     <AiFillInstagram className="text-[#FFFFFF80] text-lg group-hover:text-white transition-all duration-300 ease-in-out" />

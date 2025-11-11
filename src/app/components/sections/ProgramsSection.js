@@ -110,7 +110,7 @@ export default function ProgramsSection({ user}) {
                       ${activeIndex === index ? "-translate-x-2" : ""}`}
                       onClick={() => setActiveIndex(index)}
                     >
-                      <h4
+                      <h3
                         className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-0 sm:mb-3 transition-all duration-300 ease-in-out ${
                           activeIndex === index
                             ? "text-primary"
@@ -119,7 +119,7 @@ export default function ProgramsSection({ user}) {
                       >
                         <span className="text-primary">{index + 1}.</span>{" "}
                         {program.title}
-                      </h4>
+                      </h3>
                     </div>
                   ))}
                 </div>

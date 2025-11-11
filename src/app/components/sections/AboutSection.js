@@ -69,10 +69,10 @@ export default function AboutSection() {
                 />
               </div>
               <div>
-                <h4 className="text-2xl md:text-3xl text-secondary font-bold">
+                <h3 className="text-2xl md:text-3xl text-secondary font-bold">
                   رؤيتنا
-                </h4>
-                <p className="text-sm md:text-lg text-[#737D7C] font-medium">
+                </h3>
+                <p className="text-base md:text-lg text-[#737D7C] font-medium">
                   الارتقاء بمكانة الأسرة إلى مستوى رفيع يُشار إليه بالبنان في كل
                   محفل ومكان.
                 </p>
@@ -91,10 +91,10 @@ export default function AboutSection() {
                 />
               </div>
               <div>
-                <h4 className="text-2xl md:text-3xl text-secondary font-bold">
+                <h3 className="text-2xl md:text-3xl text-secondary font-bold">
                   رسالتنا
-                </h4>
-                <p className="text-sm md:text-lg text-[#737D7C] font-medium">
+                </h3>
+                <p className="text-base md:text-lg text-[#737D7C] font-medium">
                   إدارة شؤون مجلس الأسرة العامة والاجتماعية لتوثيق روابط التواصل
                   والمحبة بين أفرادها.
                 </p>

@@ -54,7 +54,7 @@ export default function Navbar() {
         <Link href="/" className="z-10">
           <Image
             src={logo.src}
-            alt="logo"
+            alt="Al Malham Family Logo"
             width={100}
             height={100}
             className="w-16 md:w-20 lg:w-24"
@@ -117,6 +117,8 @@ export default function Navbar() {
             <button
               onClick={() => setMediaOpen(!mediaOpen)}
               className="cursor-pointer px-2 py-1 rounded text-[#B8C9C7] hover:text-white flex items-center gap-1 transition-colors"
+              aria-controls="media-menu"
+              aria-label="Toggle media center menu"
             >
               المركز الاعلامي
               <span>{mediaOpen ? <FaAngleUp /> : <FaAngleDown />}</span>
@@ -167,7 +169,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <CiSearch className="text-xl cursor-pointer text-[#B8C9C7] hover:text-white transition-colors" />
+            <button
+              className="text-xl cursor-pointer text-[#B8C9C7] hover:text-white transition-colors"
+              aria-label="Search"
+            >
+              <CiSearch />
+            </button>{" "}
           </li>
         </ul>
 
@@ -263,10 +270,16 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center gap-4 z-50">
-          <CiSearch className="text-xl cursor-pointer text-[#B8C9C7]" />
+          <button
+            className="text-xl cursor-pointer text-[#B8C9C7] hover:text-white transition-colors"
+            aria-label="Search"
+          >
+            <CiSearch />
+          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-[#B8C9C7] hover:text-white transition-colors p-2"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -382,6 +395,8 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileMediaOpen(!mobileMediaOpen)}
                   className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-[#B8C9C7] hover:text-white hover:bg-white/5 transition-colors"
+                  aria-controls="media-menu"
+                  aria-label="Toggle media center menu"
                 >
                   <span>المركز الاعلامي</span>
                   <span>

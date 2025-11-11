@@ -20,18 +20,19 @@ export default function Loading() {
       {/* Rotating Arabic Pattern */}
       <div className="relative mb-6">
         <div className="w-28 h-28 relative">
-        {/* Center logo */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-18 h-18 bg-linear-to-br from-primary to-[#a8835f] rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-            <Image
-              src={logo}
-              alt="logo"
-              width={50}
-              height={50}
-              className="object-contain"
-            />
+          {/* Center logo */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-18 h-18 bg-linear-to-br from-primary to-[#a8835f] rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+              <Image
+                src={logo}
+                alt="Al Malham Family Logo"
+                width={50}
+                height={50}
+                priority
+                className="object-contain"
+              />
+            </div>
           </div>
-        </div>
         </div>
       </div>
 
@@ -44,7 +45,14 @@ export default function Loading() {
       </div>
 
       {/* Progress Bar */}
-      <div className="w-80 bg-secondary rounded-full h-3 mb-4 overflow-hidden">
+      <div
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label="شريط تقدم تحميل الصفحة"
+        className="w-80 bg-secondary rounded-full h-3 mb-4 overflow-hidden"
+      >
         <div
           className="h-3 bg-linear-to-r from-primary to-[#a8835f] rounded-full transition-all duration-200 ease-out relative"
           style={{ width: `${progress}%` }}
@@ -54,7 +62,7 @@ export default function Loading() {
       </div>
 
       {/* Percentage */}
-      <div className="text-[#B8C9C7] text-sm font-mono">{progress}% اكتمال</div>
+      <div className="text-[#B8C9C7] text-sm font-mono" aria-live="polite">{progress}% اكتمال</div>
 
       {/* Animated Dots */}
       <div className="flex space-x-2 mt-8">

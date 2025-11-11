@@ -111,14 +111,14 @@ export default function ServicesSection() {
             <button
               ref={navigationPrevRef}
               className="w-10 h-10 sm:w-12 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-[#a8835f] transition-all duration-300 shadow-lg hover:scale-110 pointer-events-auto translate-x-3 sm:translate-x-2 xl:translate-x-10"
-              aria-label="Previous news"
+              aria-label="Previous service"
             >
               <FaArrowRight className="text-sm sm:text-base" />
             </button>
             <button
               ref={navigationNextRef}
               className="w-10 h-10 sm:w-12 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-[#a8835f] transition-all duration-300 shadow-lg hover:scale-110 pointer-events-auto -translate-x-3 sm:-translate-x-2 xl:-translate-x-10"
-              aria-label="Next news"
+              aria-label="Next service"
             >
               <FaArrowLeft className="text-sm sm:text-base" />
             </button>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation,  } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -45,9 +45,16 @@ export default function HeroSection() {
 
   return (
     <section
-      className="min-h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/bg-1.png')" }}
-    >
+      className="min-h-screen relative">
+        <div className="absolute inset-0 -z-10">
+        <Image
+          src="/bg-1.png"
+          alt="Hero Background"
+          fill
+          className="object-cover"
+          priority // ensures LCP image loads fast
+        />
+      </div>
       <div className="hero-overlay"></div>
       <div className="hero-overlay1"></div>
 
@@ -100,6 +107,7 @@ export default function HeroSection() {
                   }`}
                   onClick={() => swiperInstance?.slidePrev()}
                   disabled={currentSlide === 0}
+                  aria-label="Previous slide"
                 >
                   <FaArrowRight
                     className={`w-4 h-4 sm:w-5 sm:h-5 ${
@@ -117,6 +125,7 @@ export default function HeroSection() {
                   }`}
                   onClick={() => swiperInstance?.slideNext()}
                   disabled={currentSlide === slides.length - 1}
+                  aria-label="Next slide"
                 >
                   <FaArrowLeft
                     className={`w-4 h-4 sm:w-5 sm:h-5 ${
@@ -129,7 +138,13 @@ export default function HeroSection() {
               </div>
               {/* Progress */}
               <div className="flex items-center justify-center flex-1 max-w-md mx-2 sm:mx-8">
-                <div className="flex-1 bg-[#FFFFFF26] h-0.5 rounded-full relative">
+                <div
+                  role="progressbar"
+                  aria-valuenow={currentSlide + 1}
+                  aria-valuemin={1}
+                  aria-valuemax={slides.length}
+                  className="flex-1 bg-[#FFFFFF26] h-0.5 rounded-full relative"
+                >
                   <div
                     className="bg-white h-1 rounded-full absolute top-0 right-0 transition-all duration-300"
                     style={{ width: `${progress}%` }}
