@@ -196,9 +196,9 @@ export default function ContactSection() {
             className="w-40 md:w-46 relative"
           />
           <div className="bg-primary w-24 h-24 md:w-30 md:h-30 rounded-full flex items-center justify-center -mt-32 md:-mt-38 realative z-21">
-            <h5 className="text-lg text-white font-medium text-center">
+            <h2 className="text-lg text-white font-medium text-center">
               تواصل معنا
-            </h5>
+            </h2>
           </div>
         </div>
 
@@ -352,6 +352,7 @@ export default function ContactSection() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
+                    if(!phone) return
                     console.log("Phone submitted:", phone);
                     setPhone(""); // clear input after submit
                   }}
@@ -368,6 +369,8 @@ export default function ContactSection() {
                   />
                   <button
                     type="submit"
+                    aria-label="Send"
+                    disabled={!phone}
                     className="bg-primary text-white border border-transparent hover:bg-[#a8835f] transition duration-300 flex items-center justify-center px-3 sm:px-4 group cursor-pointer"
                   >
                     <FaPaperPlane className="text-lg sm:text-xl transform group-hover:-translate-y-1 transition-transform duration-300" />

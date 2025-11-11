@@ -117,37 +117,45 @@ export default function Navbar() {
             <button
               onClick={() => setMediaOpen(!mediaOpen)}
               className="cursor-pointer px-2 py-1 rounded text-[#B8C9C7] hover:text-white flex items-center gap-1 transition-colors"
-              aria-controls="media-menu"
-              aria-label="Toggle media center menu"
+              aria-expanded={mediaOpen}
+              aria-haspopup="true"
+              aria-label="المركز الاعلامي"
             >
               المركز الاعلامي
               <span>{mediaOpen ? <FaAngleUp /> : <FaAngleDown />}</span>
             </button>
             {mediaOpen && (
-              <ul className="absolute top-full left-0 mt-1 w-48 bg-[#2F534E]/95 backdrop-blur-sm rounded shadow-lg z-50 text-[#B8C9C7] py-2">
-                <li>
+              <ul
+                id="media-menu"
+                role="menu"
+                className="absolute top-full left-0 mt-1 w-48 bg-[#2F534E]/95 backdrop-blur-sm rounded shadow-lg z-50 text-[#B8C9C7] py-2"
+              >
+                <li role="none">
                   <Link
                     href="/media/news"
                     className="block px-4 py-2 hover:bg-primary hover:text-white transition-all duration-200"
                     onClick={() => setMediaOpen(false)}
+                     role="menuitem"
                   >
                     الأخبار
                   </Link>
                 </li>
-                <li>
+                <li role="none">
                   <Link
                     href="/media/press"
                     className="block px-4 py-2 hover:bg-primary hover:text-white transition-all duration-200"
                     onClick={() => setMediaOpen(false)}
+                     role="menuitem"
                   >
                     الصور
                   </Link>
                 </li>
-                <li>
+                <li role="none">
                   <Link
                     href="/media/videos"
                     className="block px-4 py-2 hover:bg-primary hover:text-white transition-all duration-200"
                     onClick={() => setMediaOpen(false)}
+                     role="menuitem"
                   >
                     الفيديوهات
                   </Link>
@@ -183,6 +191,7 @@ export default function Navbar() {
           <button
             onClick={handleLocaleToggle}
             className="flex items-center cursor-pointer gap-1 px-4 py-2 text-[#B8C9C7] hover:text-white transition-colors"
+              aria-label={locale === "ar" ? "Switch to English" : "التغيير إلى العربية"}
           >
             {locale === "ar" ? "English" : "Arabic"}
             <TbWorld />
@@ -190,7 +199,7 @@ export default function Navbar() {
           {user ? (
             <div className="flex items-center gap-4">
               {/* Cart Icon with Badge */}
-              <Link href="/cart" className="relative p-3 group bg-[#FFFFFF12]">
+              <Link href="/cart" className="relative p-3 group bg-[#FFFFFF12]" aria-label="Shopping Cart">
                 <IoBagOutline className="text-2xl text-[#B8C9C7] group-hover:text-primary transition-colors" />
                 <span className="absolute bottom-2 right-2 bg-primary text-white text-xs rounded-full w-3 h-3 flex items-center justify-center border border-[#585858]">
                   3
@@ -201,6 +210,7 @@ export default function Navbar() {
               <Link
                 href="/notifactions"
                 className="relative p-3 group bg-[#FFFFFF12]"
+                aria-label="Notifactions"
               >
                 <FaRegBell className="text-2xl text-[#B8C9C7] group-hover:text-primary transition-colors" />
                 <span className="absolute top-3 right-3 bg-primary text-white text-xs rounded-full w-3 h-3 flex items-center justify-center border border-[#585858]">
@@ -213,6 +223,8 @@ export default function Navbar() {
                 <button
                   className="p-3 flex items-center gap-2 text-[#B8C9C7] hover:text-primary transition-colors bg-[#FFFFFF12]"
                   onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+                   aria-haspopup="true"
+                  aria-label={`ملف المستخدم، ${user.name}`}
                 >
                   <FaUser className="text-2xl" />
                   <span className="text-base">{user.name}</span>
@@ -220,7 +232,7 @@ export default function Navbar() {
 
                 {/* Profile Dropdown */}
                 {profileDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-[#2F534E]/95 backdrop-blur-sm rounded shadow-lg z-50 py-2">
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-[#2F534E]/95 backdrop-blur-sm rounded shadow-lg z-50 py-2" role="menu">
                     <div className="px-4 py-2 border-b border-[#B8C9C7]/30">
                       <p className="text-white font-medium">{user.name}</p>
                       <p className="text-[#B8C9C7] text-sm">{user.email}</p>
@@ -229,6 +241,7 @@ export default function Navbar() {
                       href="/profile"
                       className="block px-4 py-2 text-[#B8C9C7] hover:bg-primary hover:text-white transition-all duration-200"
                       onClick={() => setProfileDropdownOpen(false)}
+                       role="menuitem"
                     >
                       الملف الشخصي
                     </Link>
@@ -236,6 +249,7 @@ export default function Navbar() {
                       href="/notifactions"
                       className="block px-4 py-2 text-[#B8C9C7] hover:bg-primary hover:text-white transition-all duration-200"
                       onClick={() => setProfileDropdownOpen(false)}
+                       role="menuitem"
                     >
                       طلباتي
                     </Link>
@@ -243,6 +257,7 @@ export default function Navbar() {
                       href="/settings"
                       className="block px-4 py-2 text-[#B8C9C7] hover:bg-primary hover:text-white transition-all duration-200"
                       onClick={() => setProfileDropdownOpen(false)}
+                       role="menuitem"
                     >
                       الإعدادات
                     </Link>
@@ -250,6 +265,7 @@ export default function Navbar() {
                     <button
                       onClick={handleLogout}
                       className="flex items-center gap-2 w-full text-right px-4 py-2 text-[#B8C9C7] hover:bg-red-600 hover:text-white transition-all duration-200"
+                       role="menuitem"
                     >
                       <FaSignOutAlt />
                       تسجيل الخروج
@@ -299,6 +315,9 @@ export default function Navbar() {
           lg:hidden fixed top-0 right-0 h-full w-80 bg-[#2F534E] shadow-2xl z-50 transform transition-transform duration-300 ease-in-out
           ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
         `}
+         role="dialog"
+          aria-modal="true"
+          aria-label="القائمة الرئيسية"
         >
           <div className="p-6 pt-20 h-full overflow-y-auto">
             {/* Language Toggle Mobile */}
@@ -306,6 +325,7 @@ export default function Navbar() {
               <button
                 onClick={handleLocaleToggle}
                 className="flex items-center cursor-pointer gap-2 px-4 py-2 text-[#B8C9C7] hover:text-white transition-colors"
+                aria-label={locale === "ar" ? "Switch to English" : "التغيير إلى العربية"}
               >
                 <TbWorld />
                 {locale === "ar" ? "English" : "Arabic"}
@@ -395,8 +415,8 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileMediaOpen(!mobileMediaOpen)}
                   className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-[#B8C9C7] hover:text-white hover:bg-white/5 transition-colors"
-                  aria-controls="media-menu"
-                  aria-label="Toggle media center menu"
+                   aria-expanded={mobileMediaOpen}
+                  aria-haspopup="true"
                 >
                   <span>المركز الاعلامي</span>
                   <span>
@@ -404,8 +424,8 @@ export default function Navbar() {
                   </span>
                 </button>
                 {mobileMediaOpen && (
-                  <ul className="mt-2 space-y-2 bg-[#1a3d38] rounded-lg p-2">
-                    <li>
+                  <ul className="mt-2 space-y-2 bg-[#1a3d38] rounded-lg p-2" role="menu">
+                    <li role="none">
                       <Link
                         href="/media/news"
                         className="block py-2 px-6 rounded hover:bg-primary hover:text-white transition-colors"
@@ -413,11 +433,12 @@ export default function Navbar() {
                           setMobileMenuOpen(false);
                           setMobileMediaOpen(false);
                         }}
+                        role="menuitem"
                       >
                         الأخبار
                       </Link>
                     </li>
-                    <li>
+                    <li role="none">
                       <Link
                         href="/media/press"
                         className="block py-2 px-6 rounded hover:bg-primary hover:text-white transition-colors"
@@ -425,11 +446,12 @@ export default function Navbar() {
                           setMobileMenuOpen(false);
                           setMobileMediaOpen(false);
                         }}
+                        role="menuitem"
                       >
                         الصور
                       </Link>
                     </li>
-                    <li>
+                    <li role="none">
                       <Link
                         href="/media/videos"
                         className="block py-2 px-6 rounded hover:bg-primary hover:text-white transition-colors"
@@ -437,6 +459,7 @@ export default function Navbar() {
                           setMobileMenuOpen(false);
                           setMobileMediaOpen(false);
                         }}
+                        role="menuitem"
                       >
                         الفيديوهات
                       </Link>
@@ -453,6 +476,7 @@ export default function Navbar() {
                       href="/cart"
                       className="flex items-center gap-3 py-3 px-4 rounded-lg text-[#B8C9C7] hover:text-white hover:bg-white/5 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
+                      aria-label="Shopping Cart"
                     >
                       <IoBagOutline className="text-lg" />
                       <span>سلة التسوق</span>
@@ -466,6 +490,7 @@ export default function Navbar() {
                       href="/notifactions"
                       className="flex items-center gap-3 py-3 px-4 rounded-lg text-[#B8C9C7] hover:text-white hover:bg-white/5 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
+                      aria-label="Notifications"
                     >
                       <FaRegBell className="text-lg" />
                       <span>الاشعارات</span>
@@ -479,6 +504,7 @@ export default function Navbar() {
                       href="/profile"
                       className="flex items-center gap-3 py-3 px-4 rounded-lg text-[#B8C9C7] hover:text-white hover:bg-white/5 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
+                      aria-label="Profile"
                     >
                       <FaUser className="text-lg" />
                       <span>الملف الشخصي</span>

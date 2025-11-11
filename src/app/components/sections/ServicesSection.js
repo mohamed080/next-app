@@ -173,7 +173,8 @@ export default function ServicesSection() {
                       <Image
                         src={service.image}
                         alt={service.title}
-                        fill
+                        width={500}
+                        height={662}
                         className="object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out"
                       />
                     </div>

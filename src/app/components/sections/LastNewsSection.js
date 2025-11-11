@@ -198,7 +198,8 @@ export default function LastNewsSection() {
                       <Image
                         src={news.image}
                         alt={news.title}
-                        fill
+                        width={500}
+                        height={662}
                         className="object-cover group-hover:scale-110 ease-in-out transition-transform duration-300"
                       />
                     </div>

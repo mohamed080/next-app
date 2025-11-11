@@ -44,9 +44,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      className="min-h-screen relative">
-        <div className="absolute inset-0 -z-10">
+    <section className="min-h-screen relative">
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/bg-1.png"
           alt="Hero Background"
@@ -143,6 +142,7 @@ export default function HeroSection() {
                   aria-valuenow={currentSlide + 1}
                   aria-valuemin={1}
                   aria-valuemax={slides.length}
+                  aria-label={`Slide ${currentSlide + 1} of ${slides.length}`}
                   className="flex-1 bg-[#FFFFFF26] h-0.5 rounded-full relative"
                 >
                   <div

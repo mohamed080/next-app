@@ -10,7 +10,7 @@ export default function Loading() {
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prev) => (prev >= 100 ? 100 : prev + 1));
-    }, 30);
+    }, 25);
 
     return () => clearInterval(timer);
   }, []);
