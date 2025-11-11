@@ -1,24 +1,37 @@
 @import "tailwindcss";
 
-
 :root {
   --color-primary: #BA946C;
-  --secondary-color: #315651;
+  --color-secondary: #315651;
+  --color-scrollbar-thumb: #BA946C;
+  --color-scrollbar-track: #2F534E;
+  --font-arabic: var(--font-etab), sans-serif;
+  --font-english: var(--font-geist-sans), sans-serif;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  transition: scrollbar-color 0.3s ease;
 }
+
 @theme {
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
 }
 
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+
 body {
-  font-family: var(--font-etab), sans-serif;
-  background: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-arabic);
 }
 
 html[lang='en'] body {
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-english);
 }
 
 /* Custom styles for the home page */
@@ -74,12 +87,6 @@ html[lang='en'] body {
     );
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-
 /* News Swiper Styles */
 .news-swiper {
   padding: 20px 10px 30px !important;
@@ -94,7 +101,7 @@ html {
 
 .news-swiper .swiper-slide-active .news-card,
 .news-swiper .swiper-slide-duplicate-active {
-  border-color: #BA946C !important;
+  border-color: var(--color-primary) !important;
 }
 
 /* Force pagination to use margin-top instead of bottom positioning */
@@ -102,7 +109,6 @@ html {
   position: relative !important;
   bottom: auto !important;
   margin-top: 20px !important;
-  /* You can adjust this value */
 }
 
 /* Custom Pagination Styles */
@@ -126,7 +132,7 @@ html {
 
 .custom-pagination .swiper-pagination-bullet-active {
   width: 18px;
-  background: #BA946C;
+  background: var(--color-primary);
   opacity: 1;
   transform: scale(1.2);
 }
@@ -140,11 +146,11 @@ html {
 
 /* partner swiper */
 .partners-swiper {
-  padding: 20px 0 !important; 
+  padding: 20px 0 !important;
 }
+
 .partners-swiper .swiper-wrapper {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -154,11 +160,13 @@ html {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
   /* hero section */
   .hero-overlay,
   .hero-overlay1 {
     clip-path: none;
   }
+
   .news-swiper {
     padding: 5px 0 25px !important;
     margin-inline: 20px !important;
@@ -166,8 +174,15 @@ html {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -176,27 +191,21 @@ html {
 
 
 /* Advanced scrollbar with animations */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #BA946C #2F534E;
-  transition: scrollbar-color 0.3s ease;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #2F534E 0%, #315651 100%);
+  background: linear-gradient(180deg, var(--color-scrollbar-track) 0%, #315651 100%);
   border-radius: 6px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #BA946C 0%, #a8835f 100%);
+  background: linear-gradient(180deg, var(--color-scrollbar-thumb) 0%, #a8835f 100%);
   border-radius: 6px;
-  border: 2px solid #2F534E;
+  border: 2px solid var(--color-scrollbar-track);
   transition: all 0.3s ease;
 }
 
@@ -210,27 +219,7 @@ html {
 }
 
 ::-webkit-scrollbar-corner {
-  background: #2F534E;
-}
-
-/* For specific containers with horizontal scroll */
-.horizontal-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #BA946C #2F534E;
-}
-
-.horizontal-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.horizontal-scroll::-webkit-scrollbar-track {
-  background: #2F534E;
-  border-radius: 3px;
-}
-
-.horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #BA946C;
-  border-radius: 3px;
+  background: var(--color-scrollbar-track);
 }
 
 
@@ -240,6 +229,7 @@ html {
   0% {
     transform: translateX(-100%) skewX(-15deg);
   }
+
   100% {
     transform: translateX(100%) skewX(-15deg);
   }
@@ -250,6 +240,7 @@ html {
   0% {
     transform: translateX(100%) skewX(15deg);
   }
+
   100% {
     transform: translateX(-100%) skewX(15deg);
   }
@@ -258,7 +249,7 @@ html {
 /* Animation Classes */
 .animate-shine {
   animation: shine 2s ease-in-out infinite;
-  will-change: transform; /* Performance hint */
+  will-change: transform;
 }
 
 .animate-shine-rtl {
@@ -267,7 +258,7 @@ html {
 }
 
 /* Performance optimizations */
-.animate-shine{
+.animate-shine {
   backface-visibility: hidden;
   perspective: 1000px;
 }
